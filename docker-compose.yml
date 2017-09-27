@@ -1,10 +1,8 @@
 graphql-to-rest:
   build: .
   ports:
-    - "5000:5000"
-  command: flask run
+    - "80:80"
+  expose:
+    - 80
   volumes:
     - ./src:/code/
-  environment:
-    FLASK_APP: /code/app.py
-    HOST: http://your-host

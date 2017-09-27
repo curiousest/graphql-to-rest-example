@@ -11,6 +11,6 @@ RUN pip3 install pytest-flask==0.10.0 \
 
 ADD ./src /code/
 
-RUN export FLASK_APP=/code/app.py
-
 WORKDIR /code/
+
+CMD python app.py
