@@ -19,10 +19,16 @@ class YourObject(graphene.ObjectType):
     # We need the related object ids in order to resolve the related objects (via another REST call).
     related_object_ids = graphene.List(graphene.Int)
     # a list of YourObject
-    related_objects = graphene.List(
+    related_objects = ExternalRESTField(
         # This is how you use other ObjectType classes before they're declared.
         # See: https://github.com/curiousest/graphql-to-rest/blob/90be702969d8fcbcfc96234e5684ca9e0e5163ae/graphql_to_rest/types.py#L35
-        partial(lambda: YourObject)
+        partial(lambda: YourObject),
+        # The source field is where it gets the values to filter on
+        # The filter field is the key of the query param used to filter in the REST call
+        # Ex: 'http://some-host/your-objects?id={}'.format(your_object.related_object_ids)
+        source_field_name='related_object_ids',
+        filter_field_name='id',
+        many=True
     )
 
 

@@ -6,3 +6,5 @@ graphql-to-rest:
     - 80
   volumes:
     - ./src:/code/
+  environment:
+    - FLASK_APP=/code/graphql_to_rest_server/app.py

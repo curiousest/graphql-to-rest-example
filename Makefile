@@ -1,15 +1,13 @@
 SHELL := /bin/bash
 
 run:
-	export FLASK_APP=src/app.py
-	flask run
+	docker-compose run graphql-to-rest
 
 run_debug:
-	export FLASK_DEBUG=1
-	run
+	docker-compose run export FLASK_DEBUG=1 && flask run
 
 test:
-	py.test --capture=no
+	docker-compose run graphql-to-rest py.test --capture=no
 
 build:
-	dc build graphql-to-rest
+	docker-compose build graphql-to-rest
