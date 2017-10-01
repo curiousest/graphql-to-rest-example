@@ -41,4 +41,4 @@ class Query(graphene.ObjectType):
         many=True
     )
 
-schema = graphene.Schema(query=Query)
+myschema = graphene.Schema(query=Query)

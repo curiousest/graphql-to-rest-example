@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_graphql import GraphQLView
 
-from schema import schema
+from schema import myschema
 
 
 def create_app(path='/graphql', **kwargs):
@@ -11,7 +11,7 @@ def create_app(path='/graphql', **kwargs):
     app.debug = True
     # This line is the entrypoint to the graphql schema.
     # You can have more than one schema.
-    app.add_url_rule(path, view_func=GraphQLView.as_view('graphql', schema=schema, **kwargs))
+    app.add_url_rule(path, view_func=GraphQLView.as_view('graphql', schema=myschema, **kwargs))
     return app
 
 

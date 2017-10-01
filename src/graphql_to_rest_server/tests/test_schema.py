@@ -2,7 +2,7 @@ import pytest
 import requests_mock
 import json
 
-from ..schema import YourObject
+from schema import YourObject
 
 your_object_1_data = {
     'id': 1,

@@ -14,6 +14,6 @@ RUN pip3 install pytest-flask==0.10.0 \
 
 ADD ./src /code/
 
-WORKDIR /code/
+WORKDIR /code/graphql_to_rest_server
 
 CMD python /code/graphql_to_rest_server/app.py
